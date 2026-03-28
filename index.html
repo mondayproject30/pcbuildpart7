@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Your Own PC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <header class="app-header">
+    <div class="brand">
+      <a href="#/" class="logo">Build Your Own PC</a>
+    </div>
+    <div class="total">
+      <span>Total:</span>
+      <strong id="totalPrice">₹0</strong>
+      <button id="viewSummaryBtn" class="ghost">Summary</button>
+    </div>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="app-footer">
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, collection, addDoc, getDocs, deleteDoc, query, where } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBf8GH_zELLTlreQn0PWpcz0dH5F12jZyM",
+      authDomain: "testing01-8b30a.firebaseapp.com",
+      projectId: "testing01-8b30a",
+      storageBucket: "testing01-8b30a.firebasestorage.app",
+      messagingSenderId: "476204713399",
+      appId: "1:476204713399:web:107720e68452c3fc3a1432"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Make Firebase available globally
+    window.firebaseApp = app;
+    window.firebaseAuth = auth;
+    window.firebaseDB = db;
+    window.GoogleAuthProvider = GoogleAuthProvider;
+    window.signInWithPopup = signInWithPopup;
+    window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+    window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+    window.signOut = signOut;
+    window.onAuthStateChanged = onAuthStateChanged;
+    window.doc = doc;
+    window.setDoc = setDoc;
+    window.getDoc = getDoc;
+    window.collection = collection;
+    window.addDoc = addDoc;
+    window.getDocs = getDocs;
+    window.deleteDoc = deleteDoc;
+    window.query = query;
+    window.where = where;
+  </script>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
